@@ -21,10 +21,10 @@ public class AddTwoNumbersTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {buildNumberList(2, 4, 3), buildNumberList(5, 6, 4), buildNumberList(7, 0, 8)},
-                {buildNumberList(2, 4), buildNumberList(5, 6, 4), buildNumberList(7, 0, 5)},
-                {buildNumberList(2, 4), buildNumberList(5, 6, 4, 1, 2), buildNumberList(7, 0, 5, 1, 2)},
-                {buildNumberList(5), buildNumberList(5), buildNumberList(0, 1)},
+                {TestHelper.buildList(2, 4, 3), TestHelper.buildList(5, 6, 4), TestHelper.buildList(7, 0, 8)},
+                {TestHelper.buildList(2, 4), TestHelper.buildList(5, 6, 4), TestHelper.buildList(7, 0, 5)},
+                {TestHelper.buildList(2, 4), TestHelper.buildList(5, 6, 4, 1, 2), TestHelper.buildList(7, 0, 5, 1, 2)},
+                {TestHelper.buildList(5), TestHelper.buildList(5), TestHelper.buildList(0, 1)},
         });
     }
 
@@ -38,26 +38,6 @@ public class AddTwoNumbersTest {
     @Test
     public void test() {
         ListNode result = SOLUTION.addTwoNumbers(l1, l2);
-        ListNode resultToCompare = expectedResult;
-        while (result != null && resultToCompare != null) {
-            assertEquals(resultToCompare.val, result.val);
-            result = result.next;
-            resultToCompare = resultToCompare.next;
-        }
-        assertTrue(result == null && resultToCompare == null);
-    }
-
-    private static ListNode buildNumberList(int... numbers) {
-        ListNode rootNode = null, currentNode = null;
-        for (int number : numbers) {
-            ListNode node = new ListNode(number);
-            if (currentNode == null) {
-                rootNode = node;
-            } else {
-                currentNode.next = node;
-            }
-            currentNode = node;
-        }
-        return rootNode;
+        TestHelper.checkLists(expectedResult, result);
     }
 }
