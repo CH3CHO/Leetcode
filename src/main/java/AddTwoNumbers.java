@@ -1,3 +1,5 @@
+import model.ListNode;
+
 /**
  * Created by yqdong on 2014/11/25.
  */

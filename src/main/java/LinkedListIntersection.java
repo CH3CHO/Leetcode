@@ -1,3 +1,5 @@
+import model.ListNode;
+
 /**
  * https://oj.leetcode.com/problems/intersection-of-two-linked-lists/
  * <p/>
