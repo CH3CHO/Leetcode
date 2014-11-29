@@ -1,4 +1,13 @@
+import model.ListNode;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import util.TestHelper;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -27,5 +36,38 @@ public class ReverseInteger {
             return 0;
         }
         return (int)result;
+    }
+
+    @RunWith(Parameterized.class)
+    public static class Tests {
+
+        private static final ReverseInteger SOLUTION = new ReverseInteger();
+
+        private final int number, expectedResult;
+
+        @Parameterized.Parameters
+        public static Collection<Object[]> data() {
+            return Arrays.asList(new Object[][]{
+                    {123, 321},
+                    {-123, -321},
+                    {0, 0},
+                    {1, 1},
+                    {10, 1},
+                    {1000000003, 0},
+                    {1534236469, 0},
+                    {-2147483648, 0}
+            });
+        }
+
+        public Tests(int number, int expectedResult) {
+            this.number = number;
+            this.expectedResult = expectedResult;
+        }
+
+        @Test
+        public void test() {
+            int result = SOLUTION.reverse(number);
+            Assert.assertEquals(expectedResult, result);
+        }
     }
 }
