@@ -49,7 +49,7 @@ public class LongestCommonPrefix {
         @Parameterized.Parameters
         public static Collection<Object[]> data() {
             return Arrays.asList(new Object[][]{
-                            {new String[0], null},
+                            {new String[0], ""},
                             {new String[]{"abc", "abcd", "abcde"}, "abc"},
                             {new String[]{"a", "b", "c"}, ""},
                     }

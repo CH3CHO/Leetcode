@@ -72,7 +72,7 @@ public class PathSum {
             return Arrays.asList(new Object[][]{
                             {TestHelper.buildTree(5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, null, null, 1), 22, true},
                             {TestHelper.buildTree(5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, null, null, 1), 26, true},
-                            {TestHelper.buildTree(5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, null, null, 1), 27, false},
+                            {TestHelper.buildTree(5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, null, null, 1), 28, false},
                     }
             );
         }
